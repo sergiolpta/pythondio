@@ -60,24 +60,24 @@ class Conta:
         excedeu_saldo = valor > saldo
 
         if excedeu_saldo:
-            print("\n@@@ Operação falhou! Você não tem saldo suficiente. @@@")
+            print("\nOperação falhou. Saldo insuficiente.")
 
         elif valor > 0:
             self._saldo -= valor
-            print("\n=== Saque realizado com sucesso! ===")
+            print("\nSaque realizado com sucesso.")
             return True
 
         else:
-            print("\n@@@ Operação falhou! O valor informado é inválido. @@@")
+            print("\nOperação falhou. Valor inválido.")
 
         return False
 
     def depositar(self, valor):
         if valor > 0:
             self._saldo += valor
-            print("\n=== Depósito realizado com sucesso! ===")
+            print("\nDepósito realizado com sucesso!")
         else:
-            print("\n@@@ Operação falhou! O valor informado é inválido. @@@")
+            print("\nOperação falhou. Valor inválido.")
             return False
 
         return True
@@ -98,10 +98,10 @@ class ContaCorrente(Conta):
         excedeu_saques = numero_saques >= self._limite_saques
 
         if excedeu_limite:
-            print("\n@@@ Operação falhou! O valor do saque excede o limite. @@@")
+            print("\nOperação falhou. Valor excede o limite.")
 
         elif excedeu_saques:
-            print("\n@@@ Operação falhou! Número máximo de saques excedido. @@@")
+            print("\nOperação falhou. Número de saques excedido.")
 
         else:
             return super().sacar(valor)
